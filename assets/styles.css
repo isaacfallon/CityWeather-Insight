@@ -1,1 +1,5 @@
 /* For any other styling outside of the Bulma CSS framework */
+
+.container {
+    margin-top: 24px;
+}
