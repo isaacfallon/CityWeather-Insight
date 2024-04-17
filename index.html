@@ -2,16 +2,118 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Driven Wikipedia Content Explorer</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/styles.css">
-</head>
-<body>
-    <h1>Hello world</h1>
-    
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+
+  <body>
+    <!-- <section class="hero is primary is-bold is-medium">
+      <div class="hero-body">
+        <h1 class="title">Wikipedia-Driven Content Expolorer</h1>
+        <p class="subtitle">Hero subtitle</p>
+      </div>
+    </section> -->
+
+    <section class="hero is-medium is-primary has-text-centered">
+      <div class="hero-body">
+        <p class="title is-1">Weather-Driven Wikipedia Content Explorer</p>
+      </div>
+    </section>
+
+    <section class="section has-text-centered">
+      <div class="container">
+        <h1 class="title">Welcome</h1>
+        <p class="p">
+          Welcome to <strong>CityWeather Insight</strong>! With our app, you can
+          effortlessly plan for tomorrow's weather in any city worldwide. Simply
+          input the city name, and you'll receive a detailed forecast along with
+          curated articles related to the weather conditions.
+        </p>
+      </div>
+      <div class="container">
+        <div class="buttons is-centered">
+          <a
+            class="js-modal-trigger button is-primary"
+            data-target="modal-js-example"
+          >
+            <strong>Search for any city</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal for searching for other cities -->
+    <div id="modal-js-example" class="modal has-text-left">
+      <div class="modal-background"></div>
+
+      <div class="modal-content">
+        <div class="box">
+          <form action="submit" id="myForm">
+            <div class="field">
+              <label class="label">Enter your city here</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="eg. Adelaide" />
+              </div>
+            </div>
+            <div class="control">
+              <button class="button is-primary" onclick="submitcity">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <!-- Modal form -->
+    <!-- <div class="buttons">
+      <button class="button is-link is-light is-medium is-fullwidth">
+        Modal
+      </button>
+      <div class="modal" id="cityModal">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Enter City</p>
+            <button
+              class="delete"
+              aria-label="close"
+              onclick="closeModal()"
+            ></button>
+          </header>
+          <section class="modal-card-body"> -->
+    <!-- Content -->
+    <!-- <div class="field">
+              <label class="label">City</label>
+              <div class="control">
+                <input
+                  class="input"
+                  type="text"
+                  placeholder="Type city name here"
+                />
+              </div>
+            </div>
+          </section>
+          <footer class="modal-card-foot">
+            <button class="button is-success" onclick="submitCity()">
+              Save
+            </button>
+            <button class="button" onclick="closeModal()">Cancel</button>
+          </footer>
+        </div>
+      </div>
+    </div> -->
+
     <script src="./assets/script.js"></script>
-</body>
+    <script src="./assets/modal.js"></script>
+  </body>
 </html>
