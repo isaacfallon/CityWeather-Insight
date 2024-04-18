@@ -161,8 +161,4 @@ body {
     transform: translateY(-2px); /* Raise the button slightly */
   }
   
-  /* @media (max-width: 768px) {
-    .navbar-menu {
-        background-color: white; /* Example to ensure visibility on smaller screens */
-    }
-} */
+  
