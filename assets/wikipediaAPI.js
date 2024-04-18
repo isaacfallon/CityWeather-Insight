@@ -6,8 +6,8 @@ const remainderContainer = document.querySelector('.remainder')
 // const resultsCounter = document.querySelector('.counter');
 
 // ?Variables
-const exampleOpenWeatherDesc = "thunderstorm";
-const weatherDesc = JSON.parse(localStorage.getItem("weatherDesc")) || exampleOpenWeatherDesc;
+const exampleOpenWeatherDesc = "clear sky";
+const weatherDesc = localStorage.getItem("weatherDesc") || exampleOpenWeatherDesc;
 const descriptionsArr = ["sky", "clouds", "rain", "thunderstorm", "snow", "mist"];
 const remainderArr = [];
 
@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     event.preventDefault();
 
     awaitResults();
+    console.log(weatherDesc);
 })
 
 async function awaitResults() {
