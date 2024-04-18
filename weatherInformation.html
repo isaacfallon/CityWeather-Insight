@@ -84,11 +84,11 @@
               <div class="field">
                 <label class="label">Enter your city here</label>
                 <div class="control">
-                  <input class="input" type="text" placeholder="eg. Adelaide" />
+                  <input id="cityInput" class="input" type="text" placeholder="eg. Adelaide" />
                 </div>
               </div>
               <div class="control">
-                <button class="button is-primary" onclick="submitcity">
+                <button class="button is-primary">
                   Submit
                 </button>
               </div>
@@ -103,7 +103,7 @@
     <section class="hero is-small is-primary has-text-centered">
       <div class="hero-body" id="city-name-hero">
         <!-- item to be created on JavaScript function, appending the <p> below to the <div> above -->
-        <p class="title is-1">Adelaide</p>
+        <p id="cityName-title" class="title is-1">Adelaide</p>
       </div>
     </section>
 
@@ -116,10 +116,10 @@
           <!-- **Isaac** code to be added to the JavaScript function while creating the container that will display weather info. It needs to be append to the line above-->
           <div class="box" id="weatherInfo">
             <p class="title is-5" id="tomorrowDate">
-              Tomorrow's date is: 18/04/2024
+              Tomorrow's date
             </p>
             <div class="container is-flex" id="weatherTemp+Icon">
-              <p class="title is-5" id="cityWeather">Tomorrow's weather: 22</p>
+              <p class="title is-5" id="cityWeather">Tomorrow's weather</p>
               <div id="weatherIconDiv">
                 <img
                   id="wiconTomorrow"
@@ -129,10 +129,10 @@
               </div>
             </div>
             <p class="title is-5" id="cityWind">
-              Tomorrow's max wind speed: 5.16 m/s
+              Tomorrow's max wind speed
             </p>
             <p class="title is-5" id="cityHumidity">
-              Tomorrow max humidity: 90%
+              Tomorrow max humidity
             </p>
           </div>
         </div>
@@ -156,6 +156,8 @@
 
     <header></header>
 
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="./assets/openWeatherAPI.js"></script>
     <script src="./assets/wikipediaAPI.js"></script>
     <script src="./assets/script.js"></script>
