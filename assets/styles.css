@@ -3,3 +3,166 @@
 .container {
     margin-top: 24px;
 }
+
+/* Custom CSS for Weather Driven Wikipedia Content Explorer */
+
+/* Enhances the overall modal appearance */
+.modal {
+    display: none; /* Hidden by default to enable fancy appearance effects */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal.is-active {
+    display: flex;
+    animation: fadeIn 0.5s;
+  }
+  
+  .modal-background {
+    background-color: rgba(10, 10, 10, 0.86); /* Slightly darker background for better focus on modal */
+    animation: fadeInBackground 0.5s;
+  }
+  
+  .modal-content {
+    transform: translateY(-50px);
+    animation: slideIn 0.3s forwards;
+    border-radius: 8px; /* Rounded corners for modal box */
+  }
+  
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ffffff;
+    font-size: 2em;
+    border: none;
+    animation: rotateClose 0.5s;
+  }
+  
+  /* Animation for the modal background */
+  @keyframes fadeInBackground {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  /* Animation for the modal content */
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.7);}
+    to {opacity: 1; transform: scale(1);}
+  }
+  
+  /* Animation for modal sliding in */
+  @keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+  
+  /* Animation for close button */
+  @keyframes rotateClose {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
+  
+
+  /* Base styles to enhance the look and feel */
+body {
+    font-family: 'Arial', sans-serif; /* Ensures text is legible */
+    background-color: #f4f4f9; /* Light grey background for less strain on eyes */
+    color: #363636; /* Dark grey text for contrast */
+  }
+  
+  /* Navbar enhancements */
+  .navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow to navbar for depth */
+  }
+  
+  /* Hero section adjustments for a clean and focused title */
+  .hero.is-primary {
+    background-color: #00d1b2; /* Consistent branding with a custom teal */
+    color: #ffffff; /* White text for contrast */
+    padding: 2rem 0; /* Spacing adjustment */
+  }
+  
+  .hero-body .title {
+    animation: fadeInDown 1s ease; /* Animation for the hero title */
+  }
+  
+  /* Enhancing the modal look */
+  .modal {
+    animation: fadeIn 0.5s ease-out; /* Smooth fade in for modal appearance */
+  }
+  
+  .modal-content {
+    border-radius: 8px; /* Rounded corners for a modern look */
+    padding: 20px; /* Spacing inside modal */
+  }
+  
+
+
+  /* Columns and box styling enhancements */
+  .column {
+    margin-top: 20px; /* Adds spacing between columns */
+  }
+  
+  .box {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background for the boxes */
+  }
+  
+  /* Button enhancements */
+  .button.is-primary {
+    background-color: #69e0d6; /* Bright blue for primary buttons */
+    border-color: transparent; /* No border for a cleaner look */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .button:hover {
+    background-color: #2bb4cc; /* Darker blue on hover for interaction feedback */
+  }
+  
+  /* Adding subtle animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Small tweaks to improve overall aesthetics */
+  .input {
+    border-radius: 4px; /* Rounded corners for input fields */
+  }
+  
+  .label {
+    color: #363636; /* Dark color for labels to enhance readability */
+    font-weight: bold; /* Makes labels slightly bolder */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 1.5rem 0; /* Adjust padding for smaller screens */
+    }
+  }
+  
+  .button.is-primary {
+    background-color: #00d1b2; /* Matching theme color */
+    border: none;
+    color: white;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .button.is-primary:hover {
+    background-color: #008080; /* Darker shade on hover */
+    transform: translateY(-2px); /* Raise the button slightly */
+  }
+  
+  /* @media (max-width: 768px) {
+    .navbar-menu {
+        background-color: white; /* Example to ensure visibility on smaller screens */
+    }
+} */
