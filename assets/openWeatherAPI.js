@@ -8,9 +8,6 @@ const cityInputEl2 = document.getElementById(`cityInput`);
 const weatherInfoDiv = document.getElementById(`weatherInfo`);
 const weatherIcon = document.getElementById('wiconTomorrow');
 
-// OpenWeather API key.
-const apiKey = `c16b89d5a85d543c78bba4d012495c74`;
-
 // DayJS used to set up date for tomorrow.
 const now = dayjs();
 let tomorrow = now.add(1, 'day').format('DD/MM/YYYY');
@@ -37,7 +34,7 @@ cityNameTitle.textContent = cityNameInStorage.charAt(0).toUpperCase() + cityName
 tomorrowDate.textContent = `Tomorrow's date: ${tomorrow}`;
 
 //OpenWeather API call using the city name from storage and API key provided.
-const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cityNameInStorage}&units=metric&appid=${apiKey}&cnt=12`;
+const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cityNameInStorage}&units=metric&appid=${`c16b89d5a85d543c78bba4d012495c74`}&cnt=12`;
 
     // API fetch call
     fetch(apiUrlFiveDays).then(function (response) {
@@ -99,7 +96,7 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
 
             // The weather icon is selected by altering the 'src' attribute to the most commonly occuring icon 
             // that is only a daytime icon. 
-            let tomorrowWeatherURL= "http://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
+            let tomorrowWeatherURL= "https://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
             weatherIcon.setAttribute('src', tomorrowWeatherURL);
 
         })
@@ -114,7 +111,7 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
         localStorage.setItem('cityName', cityInputEl2.value);
         let newCityInput = localStorage.getItem('cityName');
 
-        const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${newCityInput}&units=metric&appid=${apiKey}&cnt=12`;
+        const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${newCityInput}&units=metric&appid=${`c16b89d5a85d543c78bba4d012495c74`}&cnt=12`;
 
         fetch(apiUrlFiveDays).then(function (response) {
             if (response.ok) {
@@ -172,7 +169,7 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
     
                 // The weather icon is selected by altering the 'src' attribute to the most commonly occuring icon 
                 // that is only a daytime icon. 
-                let tomorrowWeatherURL= "http://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
+                let tomorrowWeatherURL= "https://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
                 weatherIcon.setAttribute('src', tomorrowWeatherURL);
     
             })
