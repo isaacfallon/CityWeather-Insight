@@ -6,7 +6,6 @@ const remainderContainer = document.querySelector('.remainder')
 
 // ? Variables
 const exampleOpenWeatherDesc = "clear sky";
-const weatherDesc = localStorage.getItem("weatherDesc") || exampleOpenWeatherDesc;
 const descriptionsArr = ["sky", "clouds", "rain", "thunderstorm", "snow", "mist"];
 const relatedTermsArr = ["weather", "weather forecasting","meterology"]
 const remainderArr = [];
@@ -14,15 +13,16 @@ const remainderArr = [];
 // ? Load this content on page load 
 document.addEventListener("DOMContentLoaded", function (event) {
     event.preventDefault();
-
-    awaitResults();
-
+    console.log("wikipedia api storage::::::", localStorage.getItem("weatherDesc"));
+    setTimeout(function(){
+        awaitResults();
+    },3000); 
 })
 
 async function awaitResults() {
+    let weatherDesc = localStorage.getItem("weatherDesc");
     let result = await searchWiki(findSearchTerm(weatherDesc));
     displayResults(result, resultsContainer);
-
     let displayArr = [];
     for await (const term of remainderArr) {
         let remainder = await searchWiki(term);
@@ -32,7 +32,7 @@ async function awaitResults() {
 }
 
 function findSearchTerm(searchTerm) {
-
+    console.log("search term:::::", searchTerm);
     descriptionsArr.forEach(desc => {
         if (searchTerm.includes(desc)) {
             searchTerm = desc;
@@ -66,7 +66,7 @@ async function searchWiki(searchTerm) {
     let response = await fetch(wikiURL).catch(error => alert('Error : ' + error));;
     // ? Store data as JSON when response is received
     let data = await response.json();
-    console.log(wikiURL);
+
     // ? Get search array fron data
     let result = data.query.search;
     // ? Return the result
