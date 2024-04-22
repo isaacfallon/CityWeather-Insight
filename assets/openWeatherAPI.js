@@ -24,7 +24,6 @@ const highestWind = [];
 const highestHumidity = [];
 
 // We get the city name stored in local storage.
-localStorage.setItem('cityName', 'Adelaide');
 const cityNameInStorage = localStorage.getItem('cityName');
 
 // Set the page title to the city name obtained from local storage. 
