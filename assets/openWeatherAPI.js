@@ -30,7 +30,8 @@ const highestHumidity = [];
 const cityNameInStorage = localStorage.getItem('cityName');
 
 // Set the page title to the city name obtained from local storage. 
-cityNameTitle.textContent = cityNameInStorage;
+cityNameTitle.textContent = cityNameInStorage.charAt(0).toUpperCase() + cityNameInStorage.slice(1);
+
 
 // Set the text for tomorrow's date
 tomorrowDate.textContent = `Tomorrow's date: ${tomorrow}`;
@@ -73,11 +74,6 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
             //This filter method removes any weather icons that are 'night' icons. 
             const removeNightIcons = tomorrowIcons.filter(a => !a.includes("n"));
 
-            // console.log(removeNightIcons);
-            // console.log(mode(removeNightIcons));
-            console.log(tomorrowWeatherDescription)
-            console.log(mode(tomorrowWeatherDescription))
-
             let mostCommonWeather = mode(tomorrowWeatherDescription);
 
             localStorage.setItem('weatherDesc', mostCommonWeather);
@@ -90,26 +86,21 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
 
             // The text content for the corresponding weather data is then updated based on the max data pulled.
             let tomorrowDate = document.getElementById('tomorrowDate');
-            tomorrowDate.textContent = `Tomorrow's date: ${tomorrow}`;
+            tomorrowDate.textContent = `Date: ${tomorrow}`;
 
             let cityWeather = document.getElementById('cityWeather');
-            cityWeather.textContent = `Tomorrow's weather: ${highestWeatherRound} °C`;
+            cityWeather.textContent = `Weather: ${highestWeatherRound} °C`;
 
             let cityWind = document.getElementById('cityWind');
-            cityWind.textContent = `Tomorrow's max wind speed: ${highestWind} m/s`;
+            cityWind.textContent = `Peak wind speed: ${highestWind} m/s`;
 
             let cityHumidity = document.getElementById('cityHumidity');
-            cityHumidity.textContent = `Tomorrow's max humidity: ${highestHumidity}%`;
+            cityHumidity.textContent = `Peak humidity: ${highestHumidity}%`;
 
             // The weather icon is selected by altering the 'src' attribute to the most commonly occuring icon 
             // that is only a daytime icon. 
             let tomorrowWeatherURL= "http://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
             weatherIcon.setAttribute('src', tomorrowWeatherURL);
-
-            // console.log(`Tomorrow's date: ${tomorrow}`)
-            // console.log(`Tomorrow's weather: ${highestWeather} °C`);
-            // console.log(`Tomorrow's max wind speed: ${highestWind} m/s`);
-            // console.log(`Tomorrow's max humidity: ${highestHumidity}%`);
 
         })
         }
@@ -119,27 +110,33 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
     cityFormEl.addEventListener('submit', function(event) {
         event.preventDefault();
 
+        // The new city name is assigned to local storage.
         localStorage.setItem('cityName', cityInputEl2.value);
         let newCityInput = localStorage.getItem('cityName');
-
-        cityNameTitle.textContent = newCityInput;
 
         const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${newCityInput}&units=metric&appid=${apiKey}&cnt=12`;
 
         fetch(apiUrlFiveDays).then(function (response) {
             if (response.ok) {
+                // The main difference here is that we reload the page when the weather API call is okay. 
+                // This clears the modal and then displays the info below.
+            location.reload();
+
+            cityNameTitle.textContent = newCityInput;
+
             response.json().then(function (data) {
                 console.log(data.list);
                 for (let i=4; i < data.list.length; i++) {
     
-                    console.log(data.list[i].dt_txt + ' ' + data.list[i].main.temp + ' ' + data.list[i].weather[0].icon);
-    
+                    // Push the specific data points needed to their respective arrays.
                     tomorrowWeather.push(data.list[i].main.temp); 
                     tomorrowWind.push(data.list[i].wind.speed); 
                     tomorrowHumidity.push(data.list[i].main.humidity); 
                     tomorrowIcons.push(data.list[i].weather[0].icon)
                 }
     
+                // This function checks to see what the most common item in an array is. 
+                // It's used to get the most common weather icon and description. 
                 const mode = a => 
                     Object.values(
                         a.reduce((count, e) => {
@@ -151,38 +148,38 @@ const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cit
                             }, {})
                         ).reduce((a, v) => v[0] < a[0] ? a : v, [0, null])[1];
                 ;
+                //This filter method removes any weather icons that are 'night' icons. 
                 const removeNightIcons = tomorrowIcons.filter(a => !a.includes("n"));
-                console.log(removeNightIcons);
     
-                console.log(mode(removeNightIcons));
-    
+                // The highest weather, wind and humidity are pulled from each array and stored in a separate variable. 
                 const highestWeather = Math.max(...tomorrowWeather);
                 const highestWeatherRound = Math.round(highestWeather * 10) / 10;
                 const highestWind = Math.max(...tomorrowWind);
                 const highestHumidity = Math.max(...tomorrowHumidity);
     
+                // The text content for the corresponding weather data is then updated based on the max data pulled.
                 let tomorrowDate = document.getElementById('tomorrowDate');
-                tomorrowDate.textContent = `Tomorrow's date: ${tomorrow}`;
+                tomorrowDate.textContent = `Date: ${tomorrow}`;
     
                 let cityWeather = document.getElementById('cityWeather');
-                cityWeather.textContent = `Tomorrow's weather: ${highestWeatherRound} °C`;
+                cityWeather.textContent = `Weather: ${highestWeatherRound} °C`;
     
                 let cityWind = document.getElementById('cityWind');
-                cityWind.textContent = `Tomorrow's max wind speed: ${highestWind} m/s`;
+                cityWind.textContent = `Peak wind speed: ${highestWind} m/s`;
     
                 let cityHumidity = document.getElementById('cityHumidity');
-                cityHumidity.textContent = `Tomorrow's max humidity: ${highestHumidity}%`;
+                cityHumidity.textContent = `Peak humidity: ${highestHumidity}%`;
     
+                // The weather icon is selected by altering the 'src' attribute to the most commonly occuring icon 
+                // that is only a daytime icon. 
                 let tomorrowWeatherURL= "http://openweathermap.org/img/w/" + mode(removeNightIcons) + ".png";
                 weatherIcon.setAttribute('src', tomorrowWeatherURL);
     
-                console.log(`Tomorrow's date: ${tomorrow}`)
-                console.log(`Tomorrow's weather: ${highestWeather} °C`);
-                console.log(`Tomorrow's max wind speed: ${highestWind} m/s`);
-                console.log(`Tomorrow's max humidity: ${highestHumidity}%`);
-    
             })
+            // Otherwise, if the response isn't okay (i.e the city name isn't found in the API call),
+            // then prompt the user to enter a valid city name. 
+            } else {
+                invalidText.textContent = "Please enter a valid city name!";
             }
         });
-
     })
