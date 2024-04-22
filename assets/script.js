@@ -4,11 +4,13 @@
 const cityInputEl = document.getElementById(`cityInput`);
 const invalidText = document.getElementById(`invalidInput`);
 
+const apiKey = `c16b89d5a85d543c78bba4d012495c74`;
+
 // Function to handle the city input submission
 function submitCityHomePage() {
 
     // Weather API call so we can check the city input below.
-    const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInputEl.value}&units=metric&appid=${apiKey}&cnt=12`;
+    const apiUrlFiveDays = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInputEl.value}&units=metric&appid=${`c16b89d5a85d543c78bba4d012495c74`}&cnt=12`;
 
     // API fetch call
     fetch(apiUrlFiveDays).then(function (response) {
