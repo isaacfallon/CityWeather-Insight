@@ -2,11 +2,11 @@
 
 ## Description
 
-This application combines weather data for a chosen city and information about the weather conditions in one convenient place. 
+This application combines weather data for a chosen city and information about the weather conditions in one convenient place.
 
-It was developed by Isaac Fallon, Zac Gilfoyle, Soni Poudel and Alex de Silva. 
+It was developed by Isaac Fallon, Zac Gilfoyle, Soni Poudel and Alex da Silva.
 
-Our motivation to develop this application came from wanting users to learn about about possible weather conditions. Especially because they can be unpredictable and global warming is always a topic of conversation. 
+Our motivation to develop this application came from wanting users to learn about about possible weather conditions. Especially because they can be unpredictable and global warming is always a topic of conversation.
 
 Technologies used to create the project include: GitHub, Bulma CSS Framework, Wikipedia API, OpenWeather API, DayJS.
 
@@ -19,14 +19,13 @@ Alternatively, you can also clone the repository and run the project locally. [R
 
 ## Credits
 
-The application was developed by Isaac Fallon, Zac Gilfoyle, Soni Poudel and Alex de Silva. 
+The application was developed by Isaac Fallon, Zac Gilfoyle, Soni Poudel and Alex da Silva.
 
 ### External Credits
 
-[StackOverflow - Simplest way of finding mode in Javascript](https://stackoverflow.com/questions/52898456/simplest-way-of-finding-mode-in-javascript) - The answer provided by user 'ggorlen' is used in the file 'weatherInformation.js' to find the most common item found in an array when sorting data fetched from the OpenWeather API. 
+[StackOverflow - Simplest way of finding mode in Javascript](https://stackoverflow.com/questions/52898456/simplest-way-of-finding-mode-in-javascript) - The answer provided by user 'ggorlen' is used in the file 'weatherInformation.js' to find the most common item found in an array when sorting data fetched from the OpenWeather API.
 
-[Remove all elements in an array that contain a certain character [closed]](https://stackoverflow.com/questions/73674869/remove-all-elements-in-an-array-that-contain-a-certain-character) - The answer provided by user 'Laaouatni Anas' is used in the file 'weatherInformation.js' to filter our certain items in an array when sorting data fetched from the OpenWeather API. 
-
+[Remove all elements in an array that contain a certain character [closed]](https://stackoverflow.com/questions/73674869/remove-all-elements-in-an-array-that-contain-a-certain-character) - The answer provided by user 'Laaouatni Anas' is used in the file 'weatherInformation.js' to filter our certain items in an array when sorting data fetched from the OpenWeather API.
 
 ## License
 
