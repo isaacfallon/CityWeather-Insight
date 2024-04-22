@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
     function closeModal($el) {
       $el.classList.remove('is-active');
+      cityInputEl.value = "";
+      invalidText.textContent = "";
     }
   
     function closeAllModals() {
@@ -46,5 +48,5 @@ document.addEventListener('DOMContentLoaded', () => {
 //   redirect to the content page after hitting submit button
 document.getElementById("myForm").addEventListener("submit", function(event) {
     event.preventDefault(); // Prevent the default form submission behavior
-    window.location.href = "weatherInformation.html";
+    // window.location.href = "weatherInformation.html";
 });

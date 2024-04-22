@@ -74,6 +74,8 @@ body {
   /* Navbar enhancements */
   .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds shadow to navbar for depth */
+    padding: 20px;
+    border-radius: 8px;
   }
   
   /* Hero section adjustments for a clean and focused title */
@@ -160,5 +162,13 @@ body {
     background-color: #008080; /* Darker shade on hover */
     transform: translateY(-2px); /* Raise the button slightly */
   }
-  
-  
+
+  #weatherTempAndIcon {
+    /* background-color: red; */
+    align-items: flex-end;
+  }
+
+  #wiconTomorrow {
+    padding-left: 0.5em;
+  }
+
